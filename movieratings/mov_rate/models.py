@@ -24,3 +24,10 @@ class Movie(models.Model):
     war = models.BooleanField(default=False)
     western = models.BooleanField(default=False)
     imax = models.BooleanField(default=False)
+
+
+class Rating(models.Model):
+    user_id = models.IntegerField()
+    movie_id = models.IntegerField()
+    rating = models.IntegerField()
+
