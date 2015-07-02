@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Movie',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('movie_id', models.IntegerField()),
                 ('title', models.CharField(max_length=100)),
                 ('family', models.BooleanField(default=False)),
                 ('action', models.BooleanField(default=False)),
@@ -34,6 +35,16 @@ class Migration(migrations.Migration):
                 ('thriller', models.BooleanField(default=False)),
                 ('war', models.BooleanField(default=False)),
                 ('western', models.BooleanField(default=False)),
+                ('imax', models.BooleanField(default=False)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Rating',
+            fields=[
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('user_id', models.IntegerField()),
+                ('rating', models.IntegerField()),
+                ('movie_id', models.ForeignKey(to='mov_rate.Movie')),
             ],
         ),
     ]

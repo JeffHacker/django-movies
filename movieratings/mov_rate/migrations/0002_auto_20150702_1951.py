@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models, migrations
@@ -13,8 +12,10 @@ def create_movie_data(x, y):
         for movie in comma_fix[1:]:
             movie_list = movie #.replace("\n", "").split(',')
             genre_list = movie_list.pop().split('|')
-            d = {_.lower(): True for _ in genre_list}
-            #Movie.objects.create(id=movie_list[0], title=movie_list[1], **d)
+            d = {_.lower().replace("-", "_"): True for _ in genre_list}
+            Movie.objects.create(movie_id = movie_list[0], id=movie_list[0], title=movie_list[1], **d)
+    raise Exception
+
 
 class Migration(migrations.Migration):
 

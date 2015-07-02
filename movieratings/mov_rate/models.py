@@ -1,8 +1,8 @@
-
 from django.db import models
 
 
 class Movie(models.Model):
+    movie_id = models.IntegerField()
     title = models.CharField(max_length=100)
     family = models.BooleanField(default=False)
     action = models.BooleanField(default=False)
@@ -26,8 +26,8 @@ class Movie(models.Model):
     imax = models.BooleanField(default=False)
 
 
+
 class Rating(models.Model):
     user_id = models.IntegerField()
-    movie_id = models.IntegerField()
+    movie_id = models.ForeignKey(Movie)
     rating = models.IntegerField()
-
