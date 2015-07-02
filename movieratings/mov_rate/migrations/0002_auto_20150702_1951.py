@@ -14,7 +14,6 @@ def create_movie_data(x, y):
             genre_list = movie_list.pop().split('|')
             d = {_.lower().replace("-", "_"): True for _ in genre_list}
             Movie.objects.create(movie_id = movie_list[0], id=movie_list[0], title=movie_list[1], **d)
-    raise Exception
 
 
 class Migration(migrations.Migration):
