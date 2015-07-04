@@ -25,9 +25,15 @@ class Movie(models.Model):
     western = models.BooleanField(default=False)
     imax = models.BooleanField(default=False)
 
+    def __str__(self):
+        return "{}- 'Movie ID {}'".format(self.title, self.movie_id) #Bekk showed me how to decorate this with .format
+
 
 
 class Rating(models.Model):
     user_id = models.IntegerField()
     movie_id = models.ForeignKey(Movie)
     rating = models.IntegerField()
+
+    def __str__(self):
+        return self.movie_id
