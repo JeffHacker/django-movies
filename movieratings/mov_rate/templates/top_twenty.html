@@ -1,0 +1,12 @@
+{%  extends "base.html" %}
+
+{% block title %}
+    <h3>Top 20 List </h3>
+{% endblock %}
+
+
+{% block body %}
+    {% for movie in movies %}
+        {{ movie.title }}</br>
+    {% endfor %}
+{% endblock %}

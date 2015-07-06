@@ -28,7 +28,10 @@ class Movie(models.Model):
     def __str__(self):
         return "{}- 'Movie ID {}'".format(self.title, self.movie_id) #Bekk showed me how to decorate this with .format
 
-
+    @property
+    def ave_rating(self):
+        movie_rating = Rating.objects.filter(movie=self)
+        
 
 class Rating(models.Model):
     user_id = models.IntegerField()

@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from mov_rate import views
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', views.list_o_movies),
+    url(r'^top_twenty/', views.top_twenty)
 ]
