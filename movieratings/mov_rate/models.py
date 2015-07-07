@@ -30,13 +30,20 @@ class Movie(models.Model):
 
     @property
     def ave_rating(self):
-        movie_rating = Rating.objects.filter(movie=self)
-        
+        #movie_rating = [rating.movie_rating for rating in Rating.objects.filter(movie=self)]
+        #find mean of list
+        #return
+        pass
+
 
 class Rating(models.Model):
     user_id = models.IntegerField()
     movie_id = models.ForeignKey(Movie)
     rating = models.IntegerField()
 
+    def Meta(self): #Bekk pointed me this direction
+        Rating.object.all().order_by()
+
+
     def __str__(self):
-        return self.movie_id
+        return str(self.movie_id)

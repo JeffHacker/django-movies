@@ -20,6 +20,8 @@ from mov_rate import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.list_o_movies),
-    url(r'^top_twenty/', views.top_twenty)
+    url(r'^home/', views.list_o_movies, name='home'),
+    #url(r'^top_twenty/', views.top_twenty)
+    #url(r'^$', 'mov_rate.views.home', name='home')
+    #url(r'^movie_list/', views.list_o_movies, name='movie_list')
 ]
