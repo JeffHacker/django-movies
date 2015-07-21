@@ -7,7 +7,7 @@ from mov_rate.models import Movie, Rating
 def list_o_movies(request):
     movielist = Movie.objects.all()
     context = {"movies": movielist}
-    return render_to_response("movie_list.html", context)
+    return render_to_response("question_list.html", context)
 
 
 def top_twenty(request):
